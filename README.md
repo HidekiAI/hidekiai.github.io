@@ -41,5 +41,5 @@ My professional experiences have been mainly been reflected by video game indust
     - What happens if the micro-service crashes while it's deciding its probability?
     - What happens if the requested mail-server crashed?  acknowledge/confirmation receipt?
     - Should the requesting mail-server time-out?  Hint: most common mail-server that supports for example SpamAssasin, approaches are to forward the e-mail into the queue and completely remove it from its own mail queue.  The forwarded service (SpamAssasin) receives it as a persisted data and once it evaluates it, it will then get added back to the mail-server's queue with the subject revised to  `[SPAM]: <original subject>` (if it was a SPAM), and sent/received timestamp preserved.
-    - How is this micro-service responding its output to the requested mail-service?
+    - How is this micro-service responding its output to the requested mail-service?  Is it a blocking call such as REST and gRPC?  If it's blocking request, explain why as well as strategies to handle mass-SPAMs?  Explain how a blocking system can handle cases when the mail account to respond back to was deleted by sys-admin.
   - What if there are more than one instance of the service, how can it share the "rules" list?  Does it make sense to be a file? DB? NoSQL?
