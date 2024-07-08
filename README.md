@@ -20,7 +20,7 @@ My professional experiences have been mainly been reflected by video game indust
 
 ## Interview questions I'd like to ask others:
 
-- Write a parser (in language of your choice) to read in string that is either a hostname or an IP address, and the address can optionally have a ":" that indicates port.  Example: "127.0.0.1:22", "localhost:443", "myhostname", "myhostname.localdomain.tld", "::1".  Ideally, this is great if it is a take-home question, especially because it can become an unfair question when IPv6 is involved or a host is multi-homed 
+- Write a parser (in language of your choice, including BASH) to read in string that is either a hostname or an IP address, and the address can optionally have a ":" that indicates port.  Example: "127.0.0.1:22", "localhost:443", "myhostname", "myhostname.localdomain.tld", "::1".  Ideally, this is great if it is a take-home question, especially because it can become an unfair question when IPv6 is involved or a host is multi-homed 
   - hint: IP address can be either IPv4 or IPv6
   - hint: IPv6 and port combination will make it complicated for programmers who may be seeking for last encounter of ":" to mean port because address such as "8080::80:80" will become ambigous:
     ```bash
@@ -35,7 +35,7 @@ My professional experiences have been mainly been reflected by video game indust
   - hint: sockets have in-buffer and out-buffer (2 memory pools) at kernel level, but when you create a socket, you would usually create your own (i.e. circular queue) buffer for asynchronous read and asynchronous writes
   - hint: Wikipedia says it's about 10K but does not say whether that its on 64-bit Linux or Windows, or 32-bits Linux and/or Windows servers.  It does not mention whether that is due to limiations on RAM at kernel level (i.e. Layer 2) or application (i.e. Layer 4) level.
   - One of the neatest examples I can give is tarpitting to counter ping-of-death because it allocates 0-bytes at kernel level, as well as healthy debates on whether tarpits are really entrapment...
-- SPAM Service Part1: Write a very simple SPAM filter that you can add rules in a "rules.lst" file, where the rules are basically `command:value`.  The supported commands are initally `email:<email addresses>` and `subject:<keywords` where both email addresses and keywords accepts wildcard `*` (i.e. `*.bad-domain.net`, `send * dollars to`, etc).  The response is very simple, it will return a value between 0.0 and 1.0 (`float32`) in which 1.0 means 100% match confidence/probability that it's a SPAM, where 0.0 means no confidence at all (not a SPAM).
+- SPAM Service Part1: Write a very simple SPAM filter (in the language of your choice, including BASH) that you can add rules in a "rules.lst" file, where the rules are basically `command:value`.  The supported commands are initally `email:<email addresses>` and `subject:<keywords` where both email addresses and keywords accepts wildcard `*` (i.e. `*.bad-domain.net`, `send * dollars to`, etc).  The response is very simple, it will return a value between 0.0 and 1.0 (`float32`) in which 1.0 means 100% match confidence/probability that it's a SPAM, where 0.0 means no confidence at all (not a SPAM).
 - SPAM Service Part2: Discuss system designs with an assumption that this SPAM filter service will be a micro-service.
   - How is this micro-service receiving its input?  Pub-Sub? RPC? REST?
     - What happens if the micro-service crashes while it's deciding its probability?
